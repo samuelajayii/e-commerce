@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.active{
+    border-bottom: 1px solid grey;
+    transition: all 1s;
+} 
+
+
+.card-1{
+    background: url('./img/ps5.svg');
+    width: 28rem;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-2{
+    background: url('./img/womaninhat.svg');
+    
+    height: 17.75rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+}
+
+.card-3{
+    background: url('./img/speaker.svg');
+    width: 16.875rem;
+    height: 17.75rem;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.card-4{
+    background: url('./img/perfume.svg');
+    width: 16.875rem;
+    height: 17.75rem;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+@media only screen and (max-width: 425px){
+    .card-1{
+        width: 95vw;
+    }
+}
