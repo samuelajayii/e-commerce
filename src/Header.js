@@ -98,7 +98,7 @@ const Header = () => {
                                 <MenuItem onClick={handleClose}>Manage my account</MenuItem>
                                 <MenuItem onClick={handleClose}>My orders</MenuItem>
                                 <MenuItem onClick={handleClose}>My cancellations</MenuItem>
-                                <MenuItem onClick={handleClose}>Reviwes</MenuItem>
+                                <MenuItem onClick={handleClose}>Reviews</MenuItem>
                                 <MenuItem onClick={handleLogout}>Logout</MenuItem>
                             </Menu>
                         </div>) : ''}
@@ -109,4 +109,20 @@ const Header = () => {
 }
 
 export default Header;
+
+
+{/* <ul className='border-r w-fit px-32 py-10 hidden lg:flex flex-col gap-3 font-semibold'>
+                    {categories.map((category, id) => {
+                        return <li key={id} className='cursor-pointer'>{category.toUpperCase()}</li>
+                    })}
+                </ul> */}
+
+                // const [categories, setCategories] = useState([])
+
+    // useEffect(() => {
+    //     fetch('https://fakestoreapi.com/products/categories')
+    //         .then(res => res.json())
+    //         .then(json => setCategories(json))
+    //         console.log(categories)
+    // }, [categories])
 
