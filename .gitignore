@@ -23,7 +23,9 @@ yarn-debug.log*
 yarn-error.log*
 
 
-.netlify.toml
-.robots.txt
+netlify.toml
+robots.txt
 
-.tailwind.config.js
+tailwind.config.js
+
+firebase.js

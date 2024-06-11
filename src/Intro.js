@@ -2,7 +2,6 @@
 import React from 'react';
 import redbox from './img/redbox.svg'
 
-
 const Intro = () => {
     return (
         <div className='flex justify-center items-center flex-col mt-14'>

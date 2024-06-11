@@ -8,7 +8,6 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-
 const LogIn = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')

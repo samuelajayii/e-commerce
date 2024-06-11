@@ -13,7 +13,7 @@ const Footer = () => {
                     <div className='border rounded border-white px-4 py-2 -mt-2'>
                         <input type='text' placeholder='Enter your email' className='outline-none bg-transparent text-sm font-mono' />
                         <i className="fa-solid fa-paper-plane text-white h-4 w-4"></i>
-                    </div>
+                    </div> 
                 </div>
 
 

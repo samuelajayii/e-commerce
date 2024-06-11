@@ -3,17 +3,20 @@ import React from 'react';
 const Home = () => {
     return (
         <div>
-            <li>
-                <ul className='cursor-pointer'>Women's Fashion</ul>
-                <ul className='cursor-pointer'>Men's Fashion</ul>
-                <ul className='cursor-pointer'>Electronics</ul>
-                <ul className='cursor-pointer'>Home & Lifestyle</ul>
-                <ul className='cursor-pointer'>Medicine</ul>
-                <ul className='cursor-pointer'>Sports & Outdoor</ul>
-                <ul className='cursor-pointer'>Baby's & Toys</ul>
-                <ul className='cursor-pointer'>Groceries & Pets</ul>
-                <ul className='cursor-pointer'>Health & Beauty</ul>
-            </li>
+            <div>
+                <ul className='border-r w-fit px-32 py-10 hidden lg:flex flex-col gap-3 font-semibold'>
+                    <li className='cursor-pointer'>Women's Fashion</li>
+                    <li className='cursor-pointer'>Men's Fashion</li>
+                    <li className='cursor-pointer'>Electronics</li>
+                    <li className='cursor-pointer'>Home & Lifestyle</li>
+                    <li className='cursor-pointer'>Medicine</li>
+                    <li className='cursor-pointer'>Sports & Outdoor</li>
+                    <li className='cursor-pointer'>Baby's & Toys</li>
+                    <li className='cursor-pointer'>Groceries & Pets</li>
+                    <li className='cursor-pointer'>Health & Beauty</li>
+                </ul>
+            </div>
+
         </div>
     );
 }
