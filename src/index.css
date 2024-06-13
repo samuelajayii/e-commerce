@@ -43,6 +43,37 @@
     background-position: center;
 }
 
+#scroll::-webkit-scrollbar {
+    width: 5px;
+    height: 10px; 
+}
+  
+/* Track */
+#scroll::-webkit-scrollbar-track {
+    background: #888;
+    border-radius: 5px;
+}
+  
+/* Handle */
+#scroll::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 5px;
+}
+  
+/* Handle on hover */
+#scroll::-webkit-scrollbar-thumb:hover {
+    background: black;
+}
+#progress::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    background: black;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 8px solid #fff;
+    box-shadow: 0 5px 5px rgba(255, 26, 26, 0.22)
+}
+
 
 @media only screen and (max-width: 425px){
     .card-1{
