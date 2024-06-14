@@ -1,6 +1,10 @@
 import React from 'react';
 import logo from './img/whitelogo.svg'
 import qrcode from './img/Frame 719.svg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF, faInstagram, faTwitter, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
+
 const Footer = () => {
     return (
         <div className='relative bottom-0 '>
@@ -10,9 +14,9 @@ const Footer = () => {
                     <h1 className='font-semibold text-[18px]'>Subscribe</h1>
                     <h1>Get 10% off your first order</h1>
 
-                    <div className='border rounded border-white px-4 py-2 -mt-2'>
+                    <div className='border rounded border-white px-5 py-3 -mt-2 flex items-center gap-1'>
                         <input type='text' placeholder='Enter your email' className='outline-none bg-transparent text-sm font-mono' />
-                        <i className="fa-solid fa-paper-plane text-white h-4 w-4"></i>
+                        <FontAwesomeIcon icon={faPaperPlane}/>
                     </div> 
                 </div>
 
@@ -46,8 +50,11 @@ const Footer = () => {
                     <h1 className='text-xl font-semibold'>Download App</h1>
                     <h1 className='text-[#7a7a7a] text-sm'>Save $3 with App New User Only</h1>
                     <img src={qrcode} alt='' />
-                    <div className='flex flex-row gap-4'>
-                        <i className="fa-brands fa-facebook-f text-white"></i>
+                    <div className='flex flex-row gap-4 items-center'>
+                        <FontAwesomeIcon icon={faFacebookF} className='cursor-pointer'/>
+                        <FontAwesomeIcon icon={faTwitter} className='cursor-pointer'/>
+                        <FontAwesomeIcon icon={faInstagram} className='cursor-pointer'/>
+                        <FontAwesomeIcon icon={faLinkedinIn} className='cursor-pointer'/>
                     </div>
                 </div>
             </div>

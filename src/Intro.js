@@ -4,8 +4,8 @@ import redbox from './img/redbox.svg'
 
 const Intro = () => {
     return (
-        <div className='flex justify-center items-center flex-col mt-14'>
-            <div className='flex items-start flex-col mb-8'>
+        <div className='flex flex-col mt-14 mx-20'>
+            <div className='flex self-start flex-col mb-8 px-4'>
                 <div className='flex flex-row gap-4 items-center'>
                     <img src={redbox} alt='redbox' />
                     <h1 className='text-[#DB4444] font-bold'>Featured</h1>

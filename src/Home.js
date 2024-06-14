@@ -2,7 +2,9 @@ import React from 'react';
 import appleLogo from './img/1200px-Apple_gray_logo 1.svg'
 import iphone from './img/hero_endframe__cvklg0xk3w6e_large 2.svg'
 import Todays from './Todays';
-
+import Category from './Category';
+import Intro from './Intro';
+import Best from './Best';
 
 
 const Home = () => {
@@ -37,7 +39,10 @@ const Home = () => {
                 </div>
             </div>
 
-            <Todays/>
+            <Todays />
+            <Category />
+            <Best />
+            <Intro />
         </div>
 
     );

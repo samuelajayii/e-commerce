@@ -109,21 +109,3 @@ const Header = () => {
 }
 
 export default Header;
-
-
-// eslint-disable-next-line no-lone-blocks
-{/* <ul className='border-r w-fit px-32 py-10 hidden lg:flex flex-col gap-3 font-semibold'>
-                    {categories.map((category, id) => {
-                        return <li key={id} className='cursor-pointer'>{category.toUpperCase()}</li>
-                    })}
-                </ul> */}
-
-                
-
-    // useEffect(() => {
-    //     fetch('https://fakestoreapi.com/products/categories')
-    //         .then(res => res.json())
-    //         .then(json => setCategories(json))
-    //         console.log(categories)
-    // }, [categories])
-
