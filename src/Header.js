@@ -92,16 +92,24 @@ const Header = () => {
 
             </div>
             <nav className='flex flex-row justify-between lg:px-10 px-5 items-center w-full mt-8 '>
-                <img src={logo} alt='' className='hidden lg:block'/>
-                <FontAwesomeIcon icon={faBars} className='text-xl' onClick={toggleDrawer(true)}/>
+                <img src={logo} alt='' className='hidden lg:block' />
+                {userDetails ? <FontAwesomeIcon icon={faBars} className='text-xl lg:hidden ' onClick={toggleDrawer(true)} /> : ""}
+
                 <ul className='lg:flex hidden flex-row gap-14 items-center'>
                     {homeButton ? <NavLink to='home'><li className='cursor-pointer'>Home</li></NavLink> : ''}
                     <li className='cursor-pointer'>Contact</li>
                     <li className='cursor-pointer'>About</li>
-                    {!userDetails && <NavLink to='signup'><li className='cursor-pointer'>Sign Up / Log In</li></NavLink>}
-
+                    {!userDetails && <NavLink to='signup'><li className='cursor-pointer block'>Sign Up / Log In</li></NavLink>}
                 </ul>
 
+                {!userDetails ? (<div>
+                    <ul className='lg:hidden flex flex-row gap-14 justify-center items-center'>
+                        {homeButton ? <NavLink to='home'><li className='cursor-pointer'>Home</li></NavLink> : ''}
+                        <li className='cursor-pointer'>Contact</li>
+                        <li className='cursor-pointer'>About</li>
+                        {!userDetails && <NavLink to='signup'><li className='cursor-pointer block'>Sign Up / Log In</li></NavLink>}
+                    </ul>
+                </div>) : ""}
                 <div className=' flex-row gap-7 items-center lg:flex hidden'>
                     <div className='flex flex-row bg-[#F5F5F5] rounded px-2'>
                         <input type='text' placeholder='What are you looking for?' className='bg-[#F5F5F5] outline-none text-sm h-[38px] w-[243px] px-2'></input><img src={search} alt='' className='cursor-pointer w-5' />
