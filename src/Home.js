@@ -6,7 +6,7 @@ import Category from './Category';
 import Intro from './Intro';
 import Best from './Best';
 
-    const categories = ["Women's Fashion", "Men's Fashion", "Electronics", "Home & Lifestyle", "Medicine", "Sports & Outdoor", "Baby's & Toys", "Groceries & Pets", "Health & Beauty"]
+    export const categories = ["Women's Fashion", "Men's Fashion", "Electronics", "Home & Lifestyle", "Medicine", "Sports & Outdoor", "Baby's & Toys", "Groceries & Pets", "Health & Beauty"]
 
 
 const Home = () => {
@@ -20,7 +20,6 @@ const Home = () => {
                         return (
                             <li key={id} className='cursor-pointer'>{category}</li>
                         )
-                        
                     })}
                 </ul>
 

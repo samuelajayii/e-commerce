@@ -10,10 +10,10 @@ import { auth, db } from './firebase'
 import { doc, getDoc } from 'firebase/firestore'
 import { useEffect } from 'react'
 import { toast } from 'react-toastify'
-import { Tooltip, Zoom, Menu, MenuItem, Avatar, Button, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, MailIcon, Divider, Box } from '@mui/material'
+import { Tooltip, Zoom, Menu, MenuItem, Avatar, SwipeableDrawerDrawer, List, ListItem, ListItemButton, ListItemText, Divider, Box, SwipeableDrawer } from '@mui/material'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
-
+import { categories } from './Home'
 
 
 const Header = () => {
@@ -69,48 +69,18 @@ const Header = () => {
     const DrawerList = (
         <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
             <List>
-                <ListItem disablePadding>
-                    <ListItemButton>
-                        <ListItemText><NavLink to={'/home'}>Home</NavLink></ListItemText>
-                    </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                    <ListItemButton>
-                        <ListItemText>Contact</ListItemText>
-                    </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                    <ListItemButton>
-                        <ListItemText>About</ListItemText>
-                    </ListItemButton>
-                </ListItem>
+                <h1 className='text-2xl py-5 px-3'>Categories</h1>
+                <Divider />
+                {categories.map((category, id) => {
+                    return (
+                        <ListItem key={id} >
+                            <ListItemButton>
+                                <ListItemText >{category}</ListItemText>
+                            </ListItemButton>
+                        </ListItem>
+                    )
+                })}
             </List>
-            <Divider />
-            <ListItem disablePadding>
-                <ListItemButton>
-                    <ListItemText>Manage My Account</ListItemText>
-                </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
-                <ListItemButton>
-                    <ListItemText>My Orders</ListItemText>
-                </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
-                <ListItemButton>
-                    <ListItemText>My Cancellations</ListItemText>
-                </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
-                <ListItemButton>
-                    <ListItemText>Reviews</ListItemText>
-                </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
-                <ListItemButton onClick={handleLogout}>
-                    <ListItemText>Logout</ListItemText>
-                </ListItemButton>
-            </ListItem>
         </Box>
     );
 
@@ -122,8 +92,8 @@ const Header = () => {
 
             </div>
             <nav className='flex flex-row justify-between lg:px-10 px-5 items-center w-full mt-8 '>
-                <img src={logo} alt='' />
-
+                <img src={logo} alt='' className='hidden lg:block'/>
+                <FontAwesomeIcon icon={faBars} className='text-xl' onClick={toggleDrawer(true)}/>
                 <ul className='lg:flex hidden flex-row gap-14 items-center'>
                     {homeButton ? <NavLink to='home'><li className='cursor-pointer'>Home</li></NavLink> : ''}
                     <li className='cursor-pointer'>Contact</li>
@@ -168,12 +138,18 @@ const Header = () => {
                 <div className='cursor-pointer lg:hidden flex items-center gap-6'>
                     {userDetails ? (
                         <div>
-                            <Avatar className='' onClick={toggleDrawer(true)}>{userDetails.name[0]}</Avatar>
+                            <Avatar className='' id="basic-button"
+                                aria-controls={open ? 'basic-menu' : undefined}
+                                aria-haspopup="true"
+                                aria-expanded={open ? 'true' : undefined}
+                                onClick={handleClick}>{userDetails.name[0]}</Avatar>
                         </div>
                     ) : ''}
-                    <Drawer open={menu} onClose={toggleDrawer(false)}>
+                    <SwipeableDrawer open={menu} onClose={toggleDrawer(false)}>
                         {DrawerList}
-                    </Drawer>
+                    </SwipeableDrawer>
+
+
 
                 </div>
 

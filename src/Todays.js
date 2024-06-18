@@ -36,7 +36,7 @@ const Todays = () => {
                                 <div className='bg-[#F5F5F5] p-5 w-full flex items-center justify-center h-[200px]'>
                                     <img src={product.image} alt='' className='h-[180px] w-[150px] mix-blend-multiply'></img>
                                     <div className='flex flex-col absolute top-2 right-7 gap-1'>
-                                        <FontAwesomeIcon icon={faHeart} class Name='cursor-pointer bg-white rounded-full p-1' />
+                                        <FontAwesomeIcon icon={faHeart} className='cursor-pointer bg-white rounded-full p-1' />
                                         <FontAwesomeIcon icon={faEye} className='cursor-pointer bg-white rounded-full p-1' />
                                     </div>
 
