@@ -8,7 +8,7 @@ import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 const Footer = () => {
     return (
         <footer className='relative bottom-0 '>
-            <div className='bg-black text-white px-16 py-24 hidden lg:flex flex-row justify-center gap-20 '>
+            <div className='bg-black text-white lg:px-16 px-8 py-12 lg:py-24 flex flex-col lg:flex-row justify-center lg:gap-20 gap-7'>
                 <div className='flex flex-col w-[217px] gap-6'>
                     <img src={logo} alt='logo' className='w-[118px] h-[24px]' />
                     <h1 className='font-semibold text-[18px]'>Subscribe</h1>
@@ -27,7 +27,7 @@ const Footer = () => {
                     <h1>exclusive@gmail.com</h1>
                     <h1> +88015-88888-9999</h1>
                 </div>
-                <div className='flex flex-col w-[217px] gap-6 text-white'>
+                <div className='hidden lg:flex flex-col w-[217px] gap-6 text-white'>
                     <h1 className='text-xl font-semibold'>Account</h1>
                     <ul className='flex flex-col gap-3'>
                         <li>My Account</li>
@@ -46,7 +46,7 @@ const Footer = () => {
                         <li>Contact</li>
                     </ul>
                 </div>
-                <div className='flex flex-col w-[400px] gap-6 text-white'>
+                <div className='flex flex-col lg:w-[400px] gap-6 text-white'>
                     <h1 className='text-xl font-semibold'>Download App</h1>
                     <h1 className='text-[#7a7a7a] text-sm'>Save $3 with App New User Only</h1>
                     <img src={qrcode} alt='' />

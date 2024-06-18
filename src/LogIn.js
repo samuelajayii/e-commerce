@@ -41,11 +41,14 @@ const LogIn = () => {
                         <div className='mt-10 flex items-center gap-10 justify-between'>
                             <Button type='submit' variant='contained' disableElevation sx={{
                                 backgroundColor: '#db4444',
+                                textTransform: 'none',
                                 ":hover": {
                                     backgroundColor: '#db4444'
                                 }
                             }}>Log in</Button>
-                            <Button>Forgot password?</Button>
+                            <Button sx={{
+                                textTransform: 'none'
+                            }}>Forgot password?</Button>
                         </div>
                         <h1 className='mt-6 text-center'>Don't have an account? <NavLink to='/signup' className='border-b border-black text-center cursor-pointer'>Sign Up</NavLink></h1>
                     </div>

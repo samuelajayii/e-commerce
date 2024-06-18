@@ -52,6 +52,7 @@ const SignUp = () => {
                     <input type='password' placeholder='Password' className='outline-none border-b border-[#202020] py-1.5 text-[#202020]' onChange={(e) => setPassword(e.target.value)}/>
                     <Button type='submit' disableElevation variant='contained' sx={{
                         backgroundColor: '#DB4444',
+                        textTransform: 'none',
                         boxShadow: 'none',
                         ":hover": {
                             backgroundColor: '#DB4444'
@@ -60,6 +61,7 @@ const SignUp = () => {
                     <Button variant='outlined' disableElevation sx={{
                         borderColor: 'black',
                         color: 'black',
+                        textTransform: 'none',
                         fontFeatureSettings: 'normal',
                         ":hover": {
                             backgroundColor: 'none'
