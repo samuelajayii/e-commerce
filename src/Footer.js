@@ -7,7 +7,7 @@ import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 
 const Footer = () => {
     return (
-        <div className='relative bottom-0 '>
+        <footer className='relative bottom-0 '>
             <div className='bg-black text-white px-16 py-24 hidden lg:flex flex-row justify-center gap-20 '>
                 <div className='flex flex-col w-[217px] gap-6'>
                     <img src={logo} alt='logo' className='w-[118px] h-[24px]' />
@@ -58,7 +58,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </footer>
     );
 }
 

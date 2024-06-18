@@ -13,7 +13,7 @@ const Intro = () => {
                 <h1 className='text-2xl font-semibold mt-3'>New Arrival</h1>
             </div>
 
-            <div className='flex flex-wrap flex-col lg:flex-wrap items-center justify-center gap-4 lg:h-[550px] mb-10'>
+            <div className='flex flex-col lg:flex-wrap items-center justify-center gap-4 lg:h-[550px] mb-10'>
                 <div className='item bg-black rounded overflow-hidden relative h-[25rem] lg:h-full '>
                     <div className='card-1 text-white flex'>
                         <div className='p-4 w-[15.125rem] absolute bottom-0'>

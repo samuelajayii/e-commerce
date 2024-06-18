@@ -50,7 +50,7 @@ const Category = () => {
                     <h1 className='font-bold text-4xl'>Browse by Category</h1>
                 </div>
 
-                <div className='flex flex-row gap-3 items-center justify-center'>
+                <div className='flex flex-row gap-3 flex-wrap items-center justify-center'>
                     {categories.map((category, id) => {
                         return (
                             <div key={id} className='cursor-pointer border flex flex-col gap-4 items-center justify-center w-[10.6rem] h-[9.065rem] flex-wrap hover:scale-110 transition-all duration-300 '>

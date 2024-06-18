@@ -6,6 +6,8 @@ import Category from './Category';
 import Intro from './Intro';
 import Best from './Best';
 
+    const categories = ["Women's Fashion", "Men's Fashion", "Electronics", "Home & Lifestyle", "Medicine", "Sports & Outdoor", "Baby's & Toys", "Groceries & Pets", "Health & Beauty"]
+
 
 const Home = () => {
     return (
@@ -13,20 +15,18 @@ const Home = () => {
             <div className='flex gap-10 mb-20'>
 
                 <ul className='border-r w-fit px-32 py-10 hidden lg:flex flex-col gap-3 font-semibold'>
-                    <li className='cursor-pointer'>Women's Fashion</li>
-                    <li className='cursor-pointer'>Men's Fashion</li>
-                    <li className='cursor-pointer'>Electronics</li>
-                    <li className='cursor-pointer'>Home & Lifestyle</li>
-                    <li className='cursor-pointer'>Medicine</li>
-                    <li className='cursor-pointer'>Sports & Outdoor</li>
-                    <li className='cursor-pointer'>Baby's & Toys</li>
-                    <li className='cursor-pointer'>Groceries & Pets</li>
-                    <li className='cursor-pointer'>Health & Beauty</li>
+
+                    {categories.map((category, id) => {
+                        return (
+                            <li key={id} className='cursor-pointer'>{category}</li>
+                        )
+                        
+                    })}
                 </ul>
 
 
-                <div className='bg-black w-[60vw] h-[56dvh] self-center p-10 text-white flex justify-between'>
-                    <div className='flex  gap-4 flex-col justify-between'>
+                <div className='bg-black lg:w-[60vw] w-full lg:h-[56dvh] self-center p-10 text-white flex justify-between'>
+                    <div className='flex gap-4 flex-col justify-between'>
                         <div className='flex gap-4 items-center'>
                             <img src={appleLogo} alt=''></img>
                             <h1>iPhone 14 Series</h1>
@@ -35,13 +35,18 @@ const Home = () => {
                         <h1 className='border-b border-white w-fit cursor-pointer font-semibold'>Shop Now</h1>
                     </div>
 
-                    <img src={iphone} alt='' />
+                    <img src={iphone} alt='' className='hidden md:block'/>
                 </div>
             </div>
 
             <Todays />
             <Category />
             <Best />
+
+            <div>
+                
+            </div>
+
             <Intro />
         </div>
 

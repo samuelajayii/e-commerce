@@ -1,3 +1,4 @@
+
 /* eslint-disable no-unused-vars */
 import logo from './img/Logo.svg'
 import heart from './img/heart.svg'
@@ -9,11 +10,21 @@ import { auth, db } from './firebase'
 import { doc, getDoc } from 'firebase/firestore'
 import { useEffect } from 'react'
 import { toast } from 'react-toastify'
-import { Tooltip, Zoom, Menu, MenuItem, Avatar, Button } from '@mui/material'
+import { Tooltip, Zoom, Menu, MenuItem, Avatar, Button, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, MailIcon, Divider, Box } from '@mui/material'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 
 
 const Header = () => {
+    const [menu, setMenu] = useState(false)
+
+    const toggleDrawer = (newMenu) => () => {
+        setMenu(newMenu);
+    };
+
+
+
 
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
@@ -53,17 +64,68 @@ const Header = () => {
     useEffect(() => {
         fetchUserData()
     }, [])
+
+
+    const DrawerList = (
+        <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+            <List>
+                <ListItem disablePadding>
+                    <ListItemButton>
+                        <ListItemText><NavLink to={'/home'}>Home</NavLink></ListItemText>
+                    </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding>
+                    <ListItemButton>
+                        <ListItemText>Contact</ListItemText>
+                    </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding>
+                    <ListItemButton>
+                        <ListItemText>About</ListItemText>
+                    </ListItemButton>
+                </ListItem>
+            </List>
+            <Divider />
+            <ListItem disablePadding>
+                <ListItemButton>
+                    <ListItemText>Manage My Account</ListItemText>
+                </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+                <ListItemButton>
+                    <ListItemText>My Orders</ListItemText>
+                </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+                <ListItemButton>
+                    <ListItemText>My Cancellations</ListItemText>
+                </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+                <ListItemButton>
+                    <ListItemText>Reviews</ListItemText>
+                </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+                <ListItemButton onClick={handleLogout}>
+                    <ListItemText>Logout</ListItemText>
+                </ListItemButton>
+            </ListItem>
+        </Box>
+    );
+
+
     return (
         <header className=' border-b pb-4'>
             <div className="bg-black text-white h-12 flex justify-center items-center">
                 <h1 className="font-thin text-sm text-center">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%! <span className="underline font-semibold">SHOP NOW</span></h1>
 
             </div>
-            <nav className='flex flex-row justify-between px-10 items-center w-full mt-8 '>
+            <nav className='flex flex-row justify-between lg:px-10 px-5 items-center w-full mt-8 '>
                 <img src={logo} alt='' />
 
                 <ul className='lg:flex hidden flex-row gap-14 items-center'>
-                    {homeButton ? <NavLink to='home'><li className='cursor-pointer'>Home</li></NavLink> : '' }
+                    {homeButton ? <NavLink to='home'><li className='cursor-pointer'>Home</li></NavLink> : ''}
                     <li className='cursor-pointer'>Contact</li>
                     <li className='cursor-pointer'>About</li>
                     {!userDetails && <NavLink to='signup'><li className='cursor-pointer'>Sign Up / Log In</li></NavLink>}
@@ -103,6 +165,19 @@ const Header = () => {
                             </Menu>
                         </div>) : ''}
                 </div>
+                <div className='cursor-pointer lg:hidden flex items-center gap-6'>
+                    {userDetails ? (
+                        <div>
+                            <Avatar className='' onClick={toggleDrawer(true)}>{userDetails.name[0]}</Avatar>
+                        </div>
+                    ) : ''}
+                    <Drawer open={menu} onClose={toggleDrawer(false)}>
+                        {DrawerList}
+                    </Drawer>
+
+                </div>
+
+
             </nav>
         </header>
     );
