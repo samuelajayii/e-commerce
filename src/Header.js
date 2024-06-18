@@ -4,7 +4,7 @@ import logo from './img/Logo.svg'
 import heart from './img/heart.svg'
 import cart from './img/cart.svg'
 import search from './img/search.svg'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import { useState } from 'react'
 import { auth, db } from './firebase'
 import { doc, getDoc } from 'firebase/firestore'
@@ -135,11 +135,19 @@ const Header = () => {
                                 }}
                                 elevation={10}
                             >
+                                <div className='block lg:hidden'>
+                                    <MenuItem onClick={handleClose}><Link to="/home">Home</Link></MenuItem>
+                                    <MenuItem onClick={handleClose}>Contact</MenuItem>
+                                    <MenuItem onClick={handleClose}>About</MenuItem>
+                                    <Divider />
+                                </div>
+                                
                                 <MenuItem onClick={handleClose}>Manage my account</MenuItem>
                                 <MenuItem onClick={handleClose}>My orders</MenuItem>
                                 <MenuItem onClick={handleClose}>My cancellations</MenuItem>
                                 <MenuItem onClick={handleClose}>Reviews</MenuItem>
                                 <MenuItem onClick={handleLogout}>Logout</MenuItem>
+
                             </Menu>
                         </div>) : ''}
                 </div>

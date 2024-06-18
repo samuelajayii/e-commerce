@@ -30,7 +30,7 @@ const Best = () => {
                     </div>
 
 
-                    <div id='scroll' className='flex flex-row overflow-x-scroll overflow-y-hidden lg:items-center lg:gap-5 h-[370px]'>
+                    <div id='scroll' className='flex flex-row overflow-x-scroll overflow-y-hidden lg:items-center lg:gap-5 h-[370px] lg:h-[480px]'>
                         {products.length === 0 ? <div>Loading....</div> : products.map((product, id) => {
                             return (
                                 <div key={id} className='rounded lg:w-[270px] w-[190px] h-[150px] lg:h-[70vh] flex flex-col items-center shrink-0 px-4 lg:gap-3 gap-4 relative'>
