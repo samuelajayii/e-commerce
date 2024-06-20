@@ -154,7 +154,7 @@ const Header = () => {
                 <div className='cursor-pointer lg:hidden flex items-center gap-6'>
                     {userDetails ? (
                         <div>
-                            <Avatar className='' id="basic-button"
+                            <Avatar id="basic-button"
                                 aria-controls={open ? 'basic-menu' : undefined}
                                 aria-haspopup="true"
                                 aria-expanded={open ? 'true' : undefined}

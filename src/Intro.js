@@ -1,6 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import redbox from './img/redbox.svg'
+import servicesone from './img/Services.svg'
+import servicestwo from './img/Services (1).svg'
+import servicesthree from './img/Services (2).svg'
 
 const Intro = () => {
     return (
@@ -57,6 +60,30 @@ const Intro = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className='flex lg:gap-20 flex-col lg:flex-row gap-5 items-center justify-center my-16'>
+                <div className='flex lg:flex-col gap-4 items-center justify-center'>
+                    <img src={servicesone} alt='' />
+                    <div className='flex flex-col gap-1'>
+                        <h1 className='font-semibold text-xl'>FREE AND FAST DELIVERY</h1>
+                        <h1>Free delivery for all orders over $140</h1>
+                    </div>
+                </div>
+                <div className='flex lg:flex-col gap-4 items-center justify-center'>
+                    <img src={servicesthree} alt='' />
+                    <div className='flex flex-col gap-1'>
+                        <h1 className='font-semibold text-xl'>24/7 CUSTOMER SERVICE</h1>
+                        <h1>Friendly 24/7 customer support</h1>
+                    </div>
+                </div>
+                <div className='flex lg:flex-col gap-4 items-center justify-center'>
+                    <img src={servicestwo} alt='' />
+                    <div className='flex flex-col gap-1'>
+                        <h1 className='font-semibold text-xl'>MONEY BACK GUARANTEE</h1>
+                        <h1>We return money within 30 days</h1>
+                    </div>
+                </div>
+
             </div>
         </div>
     );
