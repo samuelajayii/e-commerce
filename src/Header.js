@@ -74,6 +74,7 @@ const Header = () => {
                             <ListItemButton>
                                 <ListItemText >{category}</ListItemText>
                             </ListItemButton>
+
                         </ListItem>
                     )
                 })}
@@ -113,14 +114,16 @@ const Header = () => {
                     </div>
 
                     <img src={heart} alt='' className='cursor-pointer w-5' />
-                    <img src={cart} alt='' className='cursor-pointer w-5' />
+                    <Tooltip title="Cart" placement='top' TransitionComponent={Zoom} arrow><Link to='/cart'><img src={cart} alt='' className='cursor-pointer w-5' /></Link></Tooltip>
+                    
                     {userDetails ?
                         (<div className='flex gap-5 items-center cursor-pointer'>
                             <Tooltip title="Account Settings" placement='top' TransitionComponent={Zoom} arrow aria-controls={open ? 'basic-menu' : undefined}
                                 aria-haspopup="true"
                                 aria-expanded={open ? 'true' : undefined}
                                 onClick={handleClick}>
-                                {userDetails.name}
+                                <h1>{userDetails.name}</h1>
+
                             </Tooltip>
                             <Menu
                                 id="basic-menu"
@@ -162,7 +165,7 @@ const Header = () => {
                                 onClick={handleClick}>{userDetails.name[0]}</Avatar>
                         </div>
                     ) : ''}
-                    <SwipeableDrawer open={menu} onClose={toggleDrawer(false)}>
+                    <SwipeableDrawer open={menu} onOpen={() => { }} onClose={toggleDrawer(false)}>
                         {DrawerList}
                     </SwipeableDrawer>
 

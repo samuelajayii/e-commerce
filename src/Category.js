@@ -7,7 +7,6 @@ import computer from './img/Category-Computer.svg'
 import gamepad from './img/Category-Gamepad.svg'
 import headphone from './img/Category-Headphone.svg'
 
-// const images = [camera, smartwatch, cellphone, computer, gamepad, headphone]
 const categories = [
     {
         image: camera,
@@ -51,9 +50,9 @@ const Category = () => {
                 </div>
 
                 <div className='flex flex-row lg:gap-3 gap-1 flex-wrap items-center justify-center'>
-                    {categories.map((category, id) => {
+                    {categories.map((category) => {
                         return (
-                            <div key={id} className='cursor-pointer border flex flex-col gap-4 items-center justify-center lg:w-[10.6rem] lg:h-[9.065rem] w-[8rem] h-7rem flex-wrap hover:scale-110 transition-all duration-300 '>
+                            <div key={category.id} className='cursor-pointer border flex flex-col gap-4 items-center justify-center lg:w-[10.6rem] lg:h-[9.065rem] w-[8rem] h-7rem flex-wrap hover:scale-110 transition-all duration-300 '>
                                 <img src={category.image} alt='category'/>
                                 <h1>{category.desc}</h1>
                             </div>
