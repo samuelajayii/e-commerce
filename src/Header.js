@@ -23,9 +23,6 @@ const Header = () => {
         setMenu(newMenu);
     };
 
-
-
-
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (e) => {
@@ -133,15 +130,19 @@ const Header = () => {
                                 MenuListProps={{
                                     'aria-labelledby': 'basic-button',
                                 }}
-                                elevation={10}
+                                elevation={20}
                             >
                                 <div className='block lg:hidden'>
                                     <MenuItem onClick={handleClose}><Link to="/home">Home</Link></MenuItem>
                                     <MenuItem onClick={handleClose}>Contact</MenuItem>
                                     <MenuItem onClick={handleClose}>About</MenuItem>
                                     <Divider />
+                                    <MenuItem onClick={handleClose}><Link to='/cart'>Cart</Link> </MenuItem>
+                                    <MenuItem onClick={handleClose}>Wishlist</MenuItem>
+
+                                    <Divider />
                                 </div>
-                                
+
                                 <MenuItem onClick={handleClose}>Manage my account</MenuItem>
                                 <MenuItem onClick={handleClose}>My orders</MenuItem>
                                 <MenuItem onClick={handleClose}>My cancellations</MenuItem>

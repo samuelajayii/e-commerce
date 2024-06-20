@@ -7,6 +7,7 @@ import Intro from './Intro';
 import SignUp from './SignUp';
 import LogIn from './LogIn';
 import Home from './Home';
+import Cart from './Cart';
 
 
 const router = createBrowserRouter([{
@@ -28,6 +29,10 @@ const router = createBrowserRouter([{
     {
       path: '/home',
       element: <Home />
+    },
+    {
+      path: '/cart',
+      element: <Cart />
     },
   ]
 }])
