@@ -7,7 +7,7 @@ import { CartContext } from './context/cart'
 import { WishListContext } from './context/wishlist';
 
 const Todays = () => {
-
+    
     const [products, setProducts] = useState([])
 
     useEffect(() => {
@@ -41,7 +41,7 @@ const Todays = () => {
                                 <div className='bg-[#F5F5F5] p-5 w-full flex items-center justify-center'>
                                     <img src={product.image} alt='' className='lg:h-[180px] h-[80px] w-[70px] lg:w-[150px] mix-blend-multiply'></img>
                                     <div className='flex flex-col absolute top-2 right-7 gap-1'>
-                                        <FontAwesomeIcon onClick={() => addToList(product)} icon={faHeart} className='cursor-pointer bg-white rounded-full p-1' />
+                                        <FontAwesomeIcon onClick={() => addToList(product)} icon={faHeart} className='cursor-pointer bg-white rounded-full p-1 ' />
                                         <FontAwesomeIcon icon={faEye} className='cursor-pointer bg-white rounded-full p-1' />
                                     </div>
 

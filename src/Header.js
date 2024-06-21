@@ -17,12 +17,14 @@ import { categories } from './Home'
 
 
 const Header = () => {
+    // this state is for the categories menu
     const [menu, setMenu] = useState(false)
 
     const toggleDrawer = (newMenu) => () => {
         setMenu(newMenu);
     };
 
+    // this state is for the profile menu
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (e) => {
@@ -32,9 +34,13 @@ const Header = () => {
         setAnchorEl(null);
     };
 
+    // to make the link to the home valid upon logging in and invalid when you log out
     const [homeButton, setHomeButton] = useState(null)
 
+    // changes to true upon logging in. Used to show the profile icon after you log in
     const [userDetails, setUserDetails] = useState(null)
+
+    // fetch user data
     const fetchUserData = async () => {
         auth.onAuthStateChanged(async (user) => {
             const docRef = doc(db, "Users", user.uid);
@@ -48,6 +54,7 @@ const Header = () => {
         })
     }
 
+    // log out of profile
     const handleLogout = async () => {
         try {
             await auth.signOut()
@@ -63,26 +70,6 @@ const Header = () => {
     }, [])
 
 
-    const DrawerList = (
-        <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
-            <List>
-                <h1 className='text-2xl py-5 px-3'>Categories</h1>
-                <Divider />
-                {categories.map((category, id) => {
-                    return (
-                        <ListItem key={id} >
-                            <ListItemButton>
-                                <ListItemText >{category}</ListItemText>
-                            </ListItemButton>
-
-                        </ListItem>
-                    )
-                })}
-            </List>
-        </Box>
-    );
-
-
     return (
         <header className=' border-b pb-4'>
             <div className="bg-black text-white h-12 flex justify-center items-center">
@@ -95,30 +82,30 @@ const Header = () => {
 
                 <ul className='lg:flex hidden flex-row gap-14 items-center'>
                     {homeButton ? <NavLink to='home'><li className='cursor-pointer'>Home</li></NavLink> : ''}
-                    <li className='cursor-pointer'>Contact</li>
-                    <li className='cursor-pointer'>About</li>
+                    {userDetails ? (
+                        <div className='flex flex-row items-center gap-14'>
+                            <li className='cursor-pointer'>Contact</li>
+                            <li className='cursor-pointer'>About</li>
+                        </div>
+
+                    ) : ''}
                     {!userDetails && <NavLink to='signup'><li className='cursor-pointer block'>Sign Up / Log In</li></NavLink>}
                 </ul>
 
-                {!userDetails ? (<div>
-                    <ul className='lg:hidden flex flex-row gap-14 justify-center items-center'>
-                        {homeButton ? <NavLink to='home'><li className='cursor-pointer'>Home</li></NavLink> : ''}
-                        <li className='cursor-pointer'>Contact</li>
-                        <li className='cursor-pointer'>About</li>
-                        {!userDetails && <NavLink to='signup'><li className='cursor-pointer block'>Sign Up / Log In</li></NavLink>}
-                    </ul>
-                </div>) : ""}
                 <div className=' flex-row gap-7 items-center lg:flex hidden'>
                     <div className='flex flex-row bg-[#F5F5F5] rounded px-2'>
-                        <input type='text' placeholder='What are you looking for?' className='bg-[#F5F5F5] outline-none text-sm h-[38px] w-[243px] px-2'></input><img src={search} alt='' className='cursor-pointer w-5' />
+                        <input disabled={!userDetails} type='text' placeholder='What are you looking for?' className='bg-[#F5F5F5] outline-none text-sm h-[38px] w-[243px] px-2 disabled:hidden'></input><img src={search} alt='' className='cursor-pointer w-5' />
                     </div>
-                    <Tooltip title="Wishlist" placement='top' TransitionComponent={Zoom} arrow>
-                        <Link to="/wishlist">
-                            <img src={heart} alt='' className='cursor-pointer w-5' />
-                        </Link>
-                    </Tooltip>
 
-                    <Tooltip title="Cart" placement='top' TransitionComponent={Zoom} arrow><Link to='/cart'><img src={cart} alt='' className='cursor-pointer w-5' /></Link></Tooltip>
+                    {userDetails && <div className='flex items-center gap-7'>
+                        <Tooltip title="Wishlist" placement='top' TransitionComponent={Zoom} arrow>
+                            <Link to="/wishlist">
+                                <img src={heart} alt='' className='cursor-pointer w-5' />
+                            </Link>
+                        </Tooltip>
+                        <Tooltip title="Cart" placement='top' TransitionComponent={Zoom} arrow><Link to='/cart'><img src={cart} alt='' className='cursor-pointer w-5' /></Link></Tooltip>
+                    </div>}
+
 
                     {userDetails ?
                         (<div className='flex gap-5 items-center cursor-pointer'>
@@ -170,7 +157,22 @@ const Header = () => {
                         </div>
                     ) : ''}
                     <SwipeableDrawer open={menu} onOpen={() => { }} onClose={toggleDrawer(false)}>
-                        {DrawerList}
+                        <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+                            <List>
+                                <h1 className='text-2xl py-5 px-3'>Categories</h1>
+                                <Divider />
+                                {categories.map((category, id) => {
+                                    return (
+                                        <ListItem key={id} >
+                                            <ListItemButton>
+                                                <ListItemText >{category}</ListItemText>
+                                            </ListItemButton>
+
+                                        </ListItem>
+                                    )
+                                })}
+                            </List>
+                        </Box>
                     </SwipeableDrawer>
 
 
