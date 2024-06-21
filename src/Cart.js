@@ -1,12 +1,8 @@
 import { useContext } from 'react'
 import { CartContext } from './context/cart'
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import { Button, Paper, TableRow, TableHead, TableContainer, TableCell, TableBody, Table, Box } from '@mui/material';
+import { Link } from 'react-router-dom';
+
 
 const Cart = () => {
 
@@ -71,7 +67,34 @@ const Cart = () => {
                         </TableBody>
                     </Table>
                 </TableContainer>
+
+                <Box sx={{
+                    marginTop: '20px',
+                    display: 'flex',
+                    justifyContent: 'space-between'
+
+                }}>
+                    <Link to="/home"><Button variant='outlined' sx={{
+                        textTransform: 'none',
+                        color: 'black',
+                        borderColor: 'black',
+                        padding: '10px 50px'
+                    }}>
+                        Return To Shop</Button>
+                    </Link>
+
+                    <Button variant='outlined' sx={{
+                        textTransform: 'none',
+                        color: 'black',
+                        borderColor: 'black',
+                        padding: '10px 50px'
+                    }}>Update Cart</Button>
+                </Box>
+
             </div>
+
+
+
             {
                 cartItems.length > 0 ? (
                     <div className="flex flex-col justify-between items-center">
@@ -86,7 +109,7 @@ const Cart = () => {
                         </button>
                     </div>
                 ) : (
-                    <h1 className="text-lg font-bold">Your cart is empty brudda</h1>
+                    <h1 className="text-3xl font-bold">Your cart is empty brudda</h1>
                 )
             }
         </div>

@@ -112,10 +112,12 @@ const Header = () => {
                     <div className='flex flex-row bg-[#F5F5F5] rounded px-2'>
                         <input type='text' placeholder='What are you looking for?' className='bg-[#F5F5F5] outline-none text-sm h-[38px] w-[243px] px-2'></input><img src={search} alt='' className='cursor-pointer w-5' />
                     </div>
+                    <Tooltip title="Wishlist" placement='top' TransitionComponent={Zoom} arrow>
+                        <img src={heart} alt='' className='cursor-pointer w-5' />
+                    </Tooltip>
 
-                    <img src={heart} alt='' className='cursor-pointer w-5' />
                     <Tooltip title="Cart" placement='top' TransitionComponent={Zoom} arrow><Link to='/cart'><img src={cart} alt='' className='cursor-pointer w-5' /></Link></Tooltip>
-                    
+
                     {userDetails ?
                         (<div className='flex gap-5 items-center cursor-pointer'>
                             <Tooltip title="Account Settings" placement='top' TransitionComponent={Zoom} arrow aria-controls={open ? 'basic-menu' : undefined}
