@@ -10,7 +10,7 @@ import { auth, db } from './firebase'
 import { doc, getDoc } from 'firebase/firestore'
 import { useEffect } from 'react'
 import { toast } from 'react-toastify'
-import { Tooltip, Zoom, Menu, MenuItem, Avatar, SwipeableDrawerDrawer, List, ListItem, ListItemButton, ListItemText, Divider, Box, SwipeableDrawer } from '@mui/material'
+import { Tooltip, Zoom, Menu, MenuItem, Avatar, List, ListItem, ListItemButton, ListItemText, Divider, Box, SwipeableDrawer } from '@mui/material'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { categories } from './Home'
@@ -113,7 +113,9 @@ const Header = () => {
                         <input type='text' placeholder='What are you looking for?' className='bg-[#F5F5F5] outline-none text-sm h-[38px] w-[243px] px-2'></input><img src={search} alt='' className='cursor-pointer w-5' />
                     </div>
                     <Tooltip title="Wishlist" placement='top' TransitionComponent={Zoom} arrow>
-                        <img src={heart} alt='' className='cursor-pointer w-5' />
+                        <Link to="/wishlist">
+                            <img src={heart} alt='' className='cursor-pointer w-5' />
+                        </Link>
                     </Tooltip>
 
                     <Tooltip title="Cart" placement='top' TransitionComponent={Zoom} arrow><Link to='/cart'><img src={cart} alt='' className='cursor-pointer w-5' /></Link></Tooltip>
@@ -143,7 +145,7 @@ const Header = () => {
                                     <MenuItem onClick={handleClose}>About</MenuItem>
                                     <Divider />
                                     <MenuItem onClick={handleClose}><Link to='/cart'>Cart</Link> </MenuItem>
-                                    <MenuItem onClick={handleClose}>Wishlist</MenuItem>
+                                    <MenuItem onClick={handleClose}><Link to="/wishlist">Wishlist</Link></MenuItem>
 
                                     <Divider />
                                 </div>
