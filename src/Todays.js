@@ -11,7 +11,7 @@ const Todays = () => {
     const [products, setProducts] = useState([])
 
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products?limit=10')
+        fetch('https://fakestoreapi.com/products?sort=desc')
             .then(res => res.json())
             .then(json => setProducts(json))
     }, [products])
@@ -48,7 +48,7 @@ const Todays = () => {
                                 </div>
                                 <div className='self-start gap-2 flex flex-col h-[90px] mb-10'>
                                     <h1>{product.title}</h1>
-                                    <span><span className='line-through text-zinc-400 italic'>${product.price}</span> <span>${product.price - 10}</span></span>
+                                    <span className='text-zinc-400 italic'>${product.price}</span>
                                     <h1>Rate: {product.rating.rate} / 5</h1>
                                 </div>
                                 <div className='w-full mt-3'>

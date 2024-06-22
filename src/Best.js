@@ -8,7 +8,7 @@ const Best = () => {
     const [products, setProducts] = useState([])
 
     useEffect(() => {
-        fetch("https://fakestoreapi.com/products/category/men's clothing?limit=10")
+        fetch("https://fakestoreapi.com/products/category/electronics")
             .then(res => res.json())
             .then(json => setProducts(json))
     }, [products])
@@ -44,7 +44,7 @@ const Best = () => {
                                     </div>
                                     <div className='self-start gap-2 flex flex-col h-[90px] mb-10'>
                                         <h1>{product.title}</h1>
-                                        <h1>${product.price}</h1>
+                                        <h1 className='text-zinc-400 italic'>${product.price}</h1>
                                         <h1>Rate: {product.rating.rate}</h1>
                                     </div>
                                     <div className='w-full'>

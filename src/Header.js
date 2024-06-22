@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 
 /* eslint-disable no-unused-vars */
 import logo from './img/Logo.svg'
@@ -5,7 +6,8 @@ import heart from './img/heart.svg'
 import cart from './img/cart.svg'
 import search from './img/search.svg'
 import { NavLink, Link } from 'react-router-dom'
-import { useState, useContext, useEffect, createContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
+import { userContext } from './App'
 import { auth, db } from './firebase'
 import { doc, getDoc } from 'firebase/firestore'
 import { toast } from 'react-toastify'
@@ -14,11 +16,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { categories } from './Home'
 
-export const userContext = createContext()
 
 const Header = () => {
 
-    
+
 
     // this state is for the categories menu
     const [menu, setMenu] = useState(false)
@@ -40,8 +41,10 @@ const Header = () => {
     // to make the link to the home valid upon logging in and invalid when you log out
     const [homeButton, setHomeButton] = useState(null)
 
-    // changes to true upon logging in. Used to show the profile icon after you log in
-    const [userDetails, setUserDetails] = useState(null)
+    // changes to true upon logging in. Used to show logged in status
+    const {userDetails, setUserDetails} = useContext(userContext)
+
+
 
     // fetch user data
     const fetchUserData = async () => {
@@ -80,13 +83,14 @@ const Header = () => {
 
             </div>
             <nav className='flex flex-row justify-between lg:px-10 px-5 items-center w-full mt-8 '>
-                <img src={logo} alt='' className='hidden lg:block' />
-                {userDetails ? <FontAwesomeIcon icon={faBars} className='text-xl lg:hidden ' onClick={toggleDrawer(true)} /> : ""}
+                <img src={logo} alt='' className='lg:block hidden' />
+                
+                {userDetails ? <FontAwesomeIcon icon={faBars} className='text-xl lg:hidden' onClick={toggleDrawer(true)} /> : ""}
 
-                <ul className='lg:flex hidden flex-row gap-14 items-center'>
-                    {homeButton ? <NavLink to='home'><li className='cursor-pointer'>Home</li></NavLink> : ''}
+                <ul className='lg:flex flex-row gap-14 items-center'>
+                    {homeButton ? <NavLink to='home'><li className='cursor-pointer lg:flex hidden items-center'>Home</li></NavLink> : ''}
                     {userDetails ? (
-                        <div className='flex flex-row items-center gap-14'>
+                        <div className='lg:flex hidden flex-row items-center gap-14'>
                             <li className='cursor-pointer'>Contact</li>
                             <li className='cursor-pointer'>About</li>
                         </div>
@@ -95,23 +99,20 @@ const Header = () => {
                     {!userDetails && <NavLink to='signup'><li className='cursor-pointer block'>Sign Up / Log In</li></NavLink>}
                 </ul>
 
-                <div className=' flex-row gap-7 items-center lg:flex hidden'>
-                    <div className='flex flex-row bg-[#F5F5F5] rounded px-2'>
-                        <input disabled={!userDetails} type='text' placeholder='What are you looking for?' className='bg-[#F5F5F5] outline-none text-sm h-[38px] w-[243px] px-2 disabled:hidden'></input><img src={search} alt='' className='cursor-pointer w-5' />
-                    </div>
-
-                    {userDetails && <div className='flex items-center gap-7'>
-                        <Tooltip title="Wishlist" placement='top' TransitionComponent={Zoom} arrow>
-                            <Link to="/wishlist">
-                                <img src={heart} alt='' className='cursor-pointer w-5' />
-                            </Link>
-                        </Tooltip>
-                        <Tooltip title="Cart" placement='top' TransitionComponent={Zoom} arrow><Link to='/cart'><img src={cart} alt='' className='cursor-pointer w-5' /></Link></Tooltip>
-                    </div>}
-
-
-                    {userDetails ?
-                        (<div className='flex gap-5 items-center cursor-pointer'>
+                {userDetails && (
+                    <div className='flex-row gap-7 items-center lg:flex hidden'>
+                        <div className='flex flex-row bg-[#F5F5F5] rounded px-2'>
+                            <input type='text' placeholder='What are you looking for?' className='bg-[#F5F5F5] outline-none text-sm h-[38px] w-[243px] px-2'></input><img src={search} alt='' className='cursor-pointer w-5' />
+                        </div>
+                        <div className='flex items-center gap-7'>
+                            <Tooltip title="Wishlist" placement='top' TransitionComponent={Zoom} arrow>
+                                <Link to="/wishlist">
+                                    <img src={heart} alt='' className='cursor-pointer w-5' />
+                                </Link>
+                            </Tooltip>
+                            <Tooltip title="Cart" placement='top' TransitionComponent={Zoom} arrow><Link to='/cart'><img src={cart} alt='' className='cursor-pointer w-5' /></Link></Tooltip>
+                        </div>
+                        <div className='flex gap-5 items-center cursor-pointer'>
                             <Tooltip title="Account Settings" placement='top' TransitionComponent={Zoom} arrow aria-controls={open ? 'basic-menu' : undefined}
                                 aria-haspopup="true"
                                 aria-expanded={open ? 'true' : undefined}
@@ -147,10 +148,12 @@ const Header = () => {
                                 <MenuItem onClick={handleLogout}>Logout</MenuItem>
 
                             </Menu>
-                        </div>) : ''}
-                </div>
+                        </div>
+                    </div>
+                )}
+                
                 <div className='cursor-pointer lg:hidden flex items-center gap-6'>
-                    {userDetails ? (
+                    {userDetails && (
                         <div>
                             <Avatar id="basic-button"
                                 aria-controls={open ? 'basic-menu' : undefined}
@@ -158,7 +161,7 @@ const Header = () => {
                                 aria-expanded={open ? 'true' : undefined}
                                 onClick={handleClick}>{userDetails.name[0]}</Avatar>
                         </div>
-                    ) : ''}
+                    )}
                     <SwipeableDrawer open={menu} onOpen={() => { }} onClose={toggleDrawer(false)}>
                         <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
                             <List>
@@ -177,12 +180,7 @@ const Header = () => {
                             </List>
                         </Box>
                     </SwipeableDrawer>
-
-
-
                 </div>
-
-
             </nav>
         </header>
     );
