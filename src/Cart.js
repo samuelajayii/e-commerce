@@ -100,7 +100,7 @@ const Cart = () => {
                     <div className="flex flex-col justify-between items-center">
                         <h1 className="text-lg font-bold">Total: ${getCartTotal()}</h1>
                         <button
-                            className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
+                            className="px-4 py-2 bg-gray-800 text-white font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
                             onClick={() => {
                                 clearCart()
                             }}
