@@ -6,6 +6,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from './firebase'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Input } from '@mui/material'
 
 
 const LogIn = () => {
@@ -16,10 +17,10 @@ const LogIn = () => {
         e.preventDefault()
         try {
             await signInWithEmailAndPassword(auth, email, password);
-            toast.success("User Logged in Successfully", {position : 'top-center'})
+            toast.success("User Logged in Successfully", { position: 'top-center' })
             window.location.href = '/home'
         } catch (error) {
-            toast.error(error.message, {position : 'bottom-center'})
+            toast.error(error.message, { position: 'bottom-center' })
         }
     }
 
@@ -35,8 +36,11 @@ const LogIn = () => {
                         <h1 className='mb-6 mt-4'>Enter your details below</h1>
 
                         <div className='flex flex-col gap-6'>
-                            <input type='email' placeholder='Email' className='outline-none border-b border-[#202020] py-1.5 text-[#202020]' value={email} onChange={(e) => setEmail(e.target.value)}/>
-                            <input type='password' placeholder='Password' className='outline-none border-b border-[#202020] py-1.5 text-[#202020]' value={password} onChange={(e) => setPassword(e.target.value)}/>
+
+                            <Input type='email' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
+                            
+                            <Input type='password' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} ></Input>
+                            
                         </div>
                         <div className='mt-10 flex items-center gap-10 justify-between'>
                             <Button type='submit' variant='contained' disableElevation sx={{

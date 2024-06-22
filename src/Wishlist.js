@@ -76,16 +76,16 @@ const Wishlist = () => {
                         </Card>
                     )
                 })}
-
-                <button
-                    className="px-4 py-2 bg-gray-800 text-white font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
-                    onClick={() => {
-                        clearList()
-                    }}
-                >
-                    Clear Wishlist
-                </button>
             </div>
+
+            <button
+                className="px-4 mb-10 py-2 bg-gray-800 text-white font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
+                onClick={() => {
+                    clearList()
+                }}
+            >
+                Clear Wishlist
+            </button>
         </div >
 
     );

@@ -5,18 +5,21 @@ import heart from './img/heart.svg'
 import cart from './img/cart.svg'
 import search from './img/search.svg'
 import { NavLink, Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useContext, useEffect, createContext } from 'react'
 import { auth, db } from './firebase'
 import { doc, getDoc } from 'firebase/firestore'
-import { useEffect } from 'react'
 import { toast } from 'react-toastify'
 import { Tooltip, Zoom, Menu, MenuItem, Avatar, List, ListItem, ListItemButton, ListItemText, Divider, Box, SwipeableDrawer } from '@mui/material'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { categories } from './Home'
 
+export const userContext = createContext()
 
 const Header = () => {
+
+    
+
     // this state is for the categories menu
     const [menu, setMenu] = useState(false)
 
