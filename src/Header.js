@@ -91,8 +91,10 @@ const Header = () => {
                     {homeButton ? <NavLink to='home'><li className='cursor-pointer lg:flex hidden items-center'>Home</li></NavLink> : ''}
                     {userDetails ? (
                         <div className='lg:flex hidden flex-row items-center gap-14'>
-                            <li className='cursor-pointer'>Contact</li>
-                            <li className='cursor-pointer'>About</li>
+                            
+                            <NavLink to="/contact"><li className='cursor-pointer'>Contact</li></NavLink>
+                            <NavLink to='/about'><li className='cursor-pointer'>About</li></NavLink>
+                            
                         </div>
 
                     ) : ''}

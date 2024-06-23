@@ -11,6 +11,8 @@ import Cart from './Cart';
 import { CartProvider } from './context/cart'
 import { WishListProvider } from './context/wishlist';
 import Wishlist from './Wishlist';
+import About from './About';
+import Contact from './Contact';
 
 const router = createBrowserRouter([{
   path: '/',
@@ -39,6 +41,14 @@ const router = createBrowserRouter([{
     {
       path: '/wishlist',
       element: <Wishlist />
+    },
+    {
+      path: '/about',
+      element: <About />
+    },
+    {
+      path: '/contact',
+      element: <Contact />
     },
   ]
 }])

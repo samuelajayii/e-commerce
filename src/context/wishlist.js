@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from 'react'
+import { toast } from 'react-toastify';
 
 export const WishListContext = createContext()
 
@@ -15,9 +16,10 @@ export const WishListProvider = ({ children }) => {
                         ? { ...wishItem, quantity: wishItem.quantity + 1 }
                         : wishItem
                 )
-            );
+            ); toast("Already in wishlist", { position: 'top-center' });
         } else {
             setWishList([...wishList, { ...item, quantity: 1 }]);
+            toast.success("Added to wishlist", { position: 'top-center' })
         }
     };
 
