@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { userContext } from './App';
 import { useContext } from 'react';
