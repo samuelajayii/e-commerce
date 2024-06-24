@@ -13,8 +13,10 @@ import { WishListProvider } from './context/wishlist';
 import Wishlist from './Wishlist';
 import About from './About';
 import Contact from './Contact';
+import Error from './Error';
 
 const router = createBrowserRouter([{
+  errorElement: <Error />,
   path: '/',
   element: <App />,
   children: [
@@ -51,7 +53,7 @@ const router = createBrowserRouter([{
       element: <Contact />
     },
   ]
-}])
+},])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
