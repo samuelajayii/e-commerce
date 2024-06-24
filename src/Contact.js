@@ -3,14 +3,14 @@ import React from 'react';
 import { userContext } from './App';
 import { useContext } from 'react';
 import NotLogged from './NotLogged';
-import { Box, Divider, Paper } from '@mui/material';
+import { Box, Divider, Paper, Button } from '@mui/material';
 
 const Contact = () => {
 
     const { userDetails } = useContext(userContext)
 
     return (
-        <div className='lg:mx-20 py-20 mx-4'>
+        <div className='lg:mx-20 py-20 mx-4 flex gap-10'>
 
             <Box component={Paper} sx={{
                 width: 330,
@@ -29,7 +29,35 @@ const Contact = () => {
                 <p>Emails: support@exclusive.com</p>
             </Box>
 
-            
+            <Box component={Paper} sx={{
+                padding: '20px',
+                display: 'flex',
+                gap: 1,
+                flexDirection: 'column',
+                width: 'fit-content'
+            }}>
+                <div className='flex flex-row gap-3 flex-wrap shrink'>
+                    <input type='text' placeholder='Your Name' className='bg-[#F5F5F5] outline-none text-sm h-[38px] w-[13rem] px-2 rounded-sm'></input>
+                    <input type='email' placeholder='Your Email' className='bg-[#F5F5F5] outline-none text-sm h-[38px] w-[13rem] px-2 rounded-sm'></input>
+                    <input type='number' placeholder='Your Phone' className='bg-[#F5F5F5] outline-none text-sm h-[38px] w-[13rem] px-2 rounded-sm'></input>
+                </div>
+                <div>
+                    <textarea type='text' rows={10} cols={50} className='bg-[#f5f5f5] w-full text-sm rounded p-3 resize-none outline-none' placeholder='Your Message'>
+
+                    </textarea>
+                </div>
+                <Button variant='contained' disableElevation sx={{
+                    backgroundColor: '#db4444',
+                    textTransform: 'none',
+                    width: 'fit-content',
+                    alignSelf: 'flex-end',
+                    padding: '10px 40px',
+                    ":hover": {
+                        backgroundColor: '#db4444'
+                    }
+                }}>Send Message</Button>
+
+            </Box>
 
         </div>
     );
