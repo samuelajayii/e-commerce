@@ -134,8 +134,8 @@ const Header = () => {
                             >
                                 <div className='block lg:hidden'>
                                     <MenuItem onClick={handleClose}><Link to="/home">Home</Link></MenuItem>
-                                    <MenuItem onClick={handleClose}>Contact</MenuItem>
-                                    <MenuItem onClick={handleClose}>About</MenuItem>
+                                    <MenuItem onClick={handleClose}><Link to="/contact">Contact</Link></MenuItem>
+                                    <MenuItem onClick={handleClose}><Link to="/about">About</Link></MenuItem>
                                     <Divider />
                                     <MenuItem onClick={handleClose}><Link to='/cart'>Cart</Link> </MenuItem>
                                     <MenuItem onClick={handleClose}><Link to="/wishlist">Wishlist</Link></MenuItem>
