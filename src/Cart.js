@@ -10,6 +10,8 @@ import NotLogged from './NotLogged';
 const Cart = () => {
     const { cartItems, addToCart, removeFromCart, clearCart, getCartTotal } = useContext(CartContext)
 
+
+
     let total = 0
 
     getCartTotal() >= 140 ? total = 0 : total = 20;
@@ -22,7 +24,7 @@ const Cart = () => {
                     <span>Home / Cart</span>
                     <div className='my-10 flex flex-col'>
                         <TableContainer component={Paper}>
-                            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                            <Table sx={{ minWidth: 650 }} aria-label="cart table">
                                 <TableHead>
                                     <TableRow>
                                         <TableCell>Product </TableCell>
@@ -106,7 +108,7 @@ const Cart = () => {
                             marginTop: 6,
                             display: 'flex',
                             flexDirection: 'column',
-                            alignSelf: {sm: 'center', md: 'flex-end', lg: 'flex-end'},
+                            alignSelf: { sm: 'center', md: 'flex-end', lg: 'flex-end' },
                             borderRadius: 1,
                             minWidth: 280
                         }}>
@@ -137,17 +139,19 @@ const Cart = () => {
                                 <Typography>Total</Typography>
                                 <Typography>${getCartTotal() + total}</Typography>
                             </Box>
-                            <Button size='large' disableElevation variant='contained' sx={{
-                                backgroundColor: '#DB4444',
-                                alignSelf: 'center',
-                                marginTop: 1,
-                                width: 'fit-content',
-                                textTransform: 'none',
-                                boxShadow: 'none',
-                                ":hover": {
-                                    backgroundColor: '#DB4444'
-                                }
-                            }}>Proceed to checkout</Button>
+                            <Link to='/checkout'>
+                                <Button size='large' disableElevation variant='contained' sx={{
+                                    backgroundColor: '#DB4444',
+                                    alignSelf: 'center',
+                                    marginTop: 1,
+                                    width: 'fit-content',
+                                    textTransform: 'none',
+                                    boxShadow: 'none',
+                                    ":hover": {
+                                        backgroundColor: '#DB4444'
+                                    }
+                                }}>Proceed to checkout</Button></Link>
+
                         </Box>
 
                     </div>

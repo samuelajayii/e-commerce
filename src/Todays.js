@@ -44,7 +44,6 @@ const Todays = () => {
                                         <FontAwesomeIcon onClick={() => addToList(product)} icon={faHeart} className='cursor-pointer bg-white rounded-full p-1 ' />
                                         <FontAwesomeIcon icon={faEye} className='cursor-pointer bg-white rounded-full p-1' />
                                     </div>
-
                                 </div>
                                 <div className='self-start gap-2 flex flex-col h-[90px] mb-10'>
                                     <h1>{product.title}</h1>

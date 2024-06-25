@@ -14,6 +14,7 @@ import Wishlist from './Wishlist';
 import About from './About';
 import Contact from './Contact';
 import Error from './Error';
+import Checkout from './Checkout';
 
 const router = createBrowserRouter([{
   errorElement: <Error />,
@@ -51,6 +52,10 @@ const router = createBrowserRouter([{
     {
       path: '/contact',
       element: <Contact />
+    },
+    {
+      path: '/checkout',
+      element: <Checkout />
     },
   ]
 },])
