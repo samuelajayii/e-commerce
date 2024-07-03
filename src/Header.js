@@ -133,12 +133,12 @@ const Header = () => {
                                 elevation={20}
                             >
                                 <div className='block lg:hidden'>
-                                    <MenuItem onClick={handleClose}><Link to="/home">Home</Link></MenuItem>
-                                    <MenuItem onClick={handleClose}><Link to="/contact">Contact</Link></MenuItem>
-                                    <MenuItem onClick={handleClose}><Link to="/about">About</Link></MenuItem>
+                                    <MenuItem onClick={handleClose}><Link to="/home" className='w-full h-full'>Home</Link></MenuItem>
+                                    <MenuItem onClick={handleClose}><Link to="/contact" className='w-full h-full'>Contact</Link></MenuItem>
+                                    <MenuItem onClick={handleClose}><Link to="/about" className='w-full h-full'>About</Link></MenuItem>
                                     <Divider />
-                                    <MenuItem onClick={handleClose}><Link to='/cart'>Cart</Link> </MenuItem>
-                                    <MenuItem onClick={handleClose}><Link to="/wishlist">Wishlist</Link></MenuItem>
+                                    <MenuItem onClick={handleClose}><Link to='/cart' className='w-full h-full'>Cart</Link> </MenuItem>
+                                    <MenuItem onClick={handleClose}><Link to="/wishlist"  className='w-full h-full'>Wishlist</Link></MenuItem>
 
                                     <Divider />
                                 </div>
