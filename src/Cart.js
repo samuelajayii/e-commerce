@@ -1,4 +1,5 @@
-import { useContext } from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useContext, useEffect, useState } from 'react'
 import { CartContext } from './context/cart'
 import { Button, Paper, TableRow, TableHead, TableContainer, TableCell, TableBody, Table, Box, Typography, Divider } from '@mui/material';
 import { Link } from 'react-router-dom';
@@ -9,6 +10,15 @@ import NotLogged from './NotLogged';
 
 const Cart = () => {
     const { cartItems, addToCart, removeFromCart, clearCart, getCartTotal } = useContext(CartContext)
+    const [disable, setDisable] = useState(true)
+
+
+
+    useEffect(() => {
+        if (cartItems.length > 0){
+            setDisable(false)
+        }
+    },)
 
 
 
@@ -139,18 +149,17 @@ const Cart = () => {
                                 <Typography>Total</Typography>
                                 <Typography>${getCartTotal() + total}</Typography>
                             </Box>
-                            <Link to='/checkout'>
-                                <Button size='large' disableElevation variant='contained' sx={{
-                                    backgroundColor: '#DB4444',
-                                    alignSelf: 'center',
-                                    marginTop: 1,
-                                    width: 'fit-content',
-                                    textTransform: 'none',
-                                    boxShadow: 'none',
-                                    ":hover": {
-                                        backgroundColor: '#DB4444'
-                                    }
-                                }}>Proceed to checkout</Button></Link>
+
+                            <Button disabled={disable} size='large' disableElevation variant='contained' sx={{
+                                backgroundColor: '#DB4444',
+                                alignSelf: 'center',
+                                marginTop: 1,
+                                textTransform: 'none',
+                                boxShadow: 'none',
+                                ":hover": {
+                                    backgroundColor: '#DB4444'
+                                }
+                            }}><Link to='/checkout' className='w-full h-full'>Proceed to checkout</Link></Button>
 
                         </Box>
 
