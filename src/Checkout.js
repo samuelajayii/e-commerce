@@ -8,6 +8,7 @@ import nagad from './img/Nagad.svg'
 import visa from './img/Visa.svg'
 import mastercard from './img/Mastercard.svg'
 import bkash from './img/Bkash.svg'
+import { toast } from 'react-toastify';
 
 const Checkout = () => {
 
@@ -165,7 +166,10 @@ const Checkout = () => {
                             }} >Apply Coupon</Button>
                         </div>
 
-                        <Button onClick={clearCart} type='submit' variant='contained' disableElevation sx={{
+                        <Button disabled={disable} onClick={() => {
+                            clearCart()
+                            toast.success("You have placed your order", { position: 'top-center' })
+                        }} type='submit' variant='contained' disableElevation sx={{
                             backgroundColor: '#db4444',
                             padding: '10px 55px',
                             width: 'fit-content',

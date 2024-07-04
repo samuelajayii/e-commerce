@@ -159,7 +159,7 @@ const Cart = () => {
                                 ":hover": {
                                     backgroundColor: '#DB4444'
                                 }
-                            }}><Link to='/checkout' className='w-full h-full'>Proceed to checkout</Link></Button>
+                            }}><Link disabled={disable} to='/checkout' className='w-full h-full'>Proceed to checkout</Link></Button>
 
                         </Box>
 
