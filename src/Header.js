@@ -1,6 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 
-/* eslint-disable no-unused-vars */
 import logo from './img/Logo.svg'
 import heart from './img/heart.svg'
 import cart from './img/cart.svg'
@@ -73,6 +71,7 @@ const Header = () => {
 
     useEffect(() => {
         fetchUserData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 
