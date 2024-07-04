@@ -33,43 +33,43 @@ const Checkout = () => {
             <h1 className='text-4xl font-semibold mb-10'>Billing Details</h1>
 
             <div className='flex gap-20 justify-center'>
-                <form className='flex  gap-10 '>
+                <form className='flex flex-col lg:flex-row gap-10 '>
                     <div>
 
 
                         <div className='flex flex-col gap-10 ' >
                             <div className='flex flex-col gap-2'>
                                 <label className='text-sm text-[#a2a2a2]'>First Name</label>
-                                <input type='text' className='bg-[#F5F5F5] lg:w-[30vw] lg:h-[2.5rem] px-3 outline-none rounded-md' required />
+                                <input type='text' className='bg-[#F5F5F5] lg:w-[30vw] lg:h-[2.5rem] py-3 px-3 outline-none rounded-md' required />
                             </div>
                             <div className='flex flex-col gap-2'>
                                 <label className='text-sm text-[#a2a2a2]'>Company Name (optional)</label>
-                                <input type='text' className='bg-[#F5F5F5] lg:w-[30vw] lg:h-[2.5rem] px-3 outline-none rounded-md' />
+                                <input type='text' className='bg-[#F5F5F5] lg:w-[30vw] lg:h-[2.5rem] py-3 px-3 outline-none rounded-md' />
 
                             </div>
                             <div className='flex flex-col gap-2'>
                                 <label className='text-sm text-[#a2a2a2]'>Street Address</label>
-                                <input type='text' className='bg-[#F5F5F5] lg:w-[30vw] lg:h-[2.5rem] px-3 outline-none rounded-md' required />
+                                <input type='text' className='bg-[#F5F5F5] lg:w-[30vw] lg:h-[2.5rem] py-3 px-3 outline-none rounded-md' required />
 
                             </div>
                             <div className='flex flex-col gap-2'>
                                 <label className='text-sm text-[#a2a2a2]'>Apartment, Floor etc (optional)</label>
-                                <input type='text' className='bg-[#F5F5F5] lg:w-[30vw] lg:h-[2.5rem] px-3 outline-none rounded-md' />
+                                <input type='text' className='bg-[#F5F5F5] lg:w-[30vw] lg:h-[2.5rem] py-3 px-3 outline-none rounded-md' />
 
                             </div>
                             <div className='flex flex-col gap-2'>
                                 <label className='text-sm text-[#a2a2a2]'>Town / City</label>
-                                <input type='text' className='bg-[#F5F5F5] lg:w-[30vw] lg:h-[2.5rem] px-3 outline-none rounded-md' required />
+                                <input type='text' className='bg-[#F5F5F5] lg:w-[30vw] lg:h-[2.5rem] py-3 px-3 outline-none rounded-md' required />
 
                             </div>
                             <div className='flex flex-col gap-2'>
                                 <label className='text-sm text-[#a2a2a2]'>Phone Number</label>
-                                <input type='number' className='bg-[#F5F5F5] lg:w-[30vw] lg:h-[2.5rem] px-3 outline-none rounded-md' required />
+                                <input type='number' className='bg-[#F5F5F5] lg:w-[30vw] lg:h-[2.5rem] py-3 px-3 outline-none rounded-md' required />
 
                             </div>
                             <div className='flex flex-col gap-2'>
                                 <label className='text-sm text-[#a2a2a2]'>Email Address</label>
-                                <input type='email' className='bg-[#F5F5F5] lg:w-[30vw] lg:h-[2.5rem] px-3 outline-none rounded-md' required />
+                                <input type='email' className='bg-[#F5F5F5] lg:w-[30vw] lg:h-[2.5rem] py-3 px-3 outline-none rounded-md' required />
 
                             </div>
                             <FormControlLabel control={<Checkbox size='medium' sx={{
@@ -82,7 +82,7 @@ const Checkout = () => {
                         </div>
                     </div>
 
-                    <div className='w-[40vw] flex flex-col gap-4'>
+                    <div className='lg:w-[40vw] flex flex-col gap-4'>
                         {cartItems.map((item, id) => {
                             return (
                                 <div key={id} className='flex flex-row gap-8 items-center justify-between w-full'>
